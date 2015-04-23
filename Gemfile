@@ -12,6 +12,7 @@ group :production do
 
  group :development do
   gem 'sqlite3'
+  gem 'pry-rails'
 end
 
 # Use Bootstrap CSS framework
