@@ -1,6 +1,11 @@
-.social-btn {
+a.social-btn {
   background-color: black; 
   margin: 2px;
   color: white;
   padding: 5px;
+  
+  &:hover {
+    color: red;
+    text-decoration: none;
+  }
 }
