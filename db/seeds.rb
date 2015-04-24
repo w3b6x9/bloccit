@@ -7,6 +7,7 @@ require 'faker'
     body: Faker::Lorem.paragraph
   )
 end
+
 posts = Post.all
 
 # Create Comments
@@ -16,6 +17,9 @@ posts = Post.all
     body: Faker::Lorem.paragraph
   )
 end
+
+Post.find_or_create_by(title: "Hello There", body: "How are you doing?")
+Comment.find_or_create_by(post_id: Post.first.id, body: "Pretty good.")
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
