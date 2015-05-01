@@ -31,3 +31,4 @@ end
 
 gem 'faker'
 gem 'devise'
+gem 'figaro', '1.0'
