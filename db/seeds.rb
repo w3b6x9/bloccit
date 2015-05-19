@@ -46,6 +46,14 @@ user.update_attributes!(
   password: 'helloworld'
 )
 
+user = User.new(
+  email: 'admin@example.com',
+  password: 'helloworld',
+  role: 'admin'
+  )
+user.skip_confirmation!
+user.save!
+
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
