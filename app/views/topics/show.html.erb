@@ -1,9 +1,9 @@
 <h1><%= @topic.name %></h1>
- 
+
  <% if policy(@topic).update? %>
    <%= link_to "Edit Topic", edit_topic_path, class: 'btn btn-success' %>
  <% end %>
- 
+
  <div class="row">
    <div class="col-md-8">
      <p class="lead"><%= @topic.description %></p>
@@ -14,7 +14,9 @@
              <%= link_to (markdown_to_html post.title), [@topic, post] %>
            </h4>
            <small>
-            submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br>
+            <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
+            submitted <%= time_ago_in_words(post.created_at) %> ago by
+            <%= post.user.name %><br>
             <%= post.comments.count %> Comments
           </small>
          </div>
