@@ -9,6 +9,10 @@
      </small>
     <p><%= markdown_to_html @post.body %></p>
   </div>
+    <h3>Summary:</h3>
+    <h4 class="media-heading">
+      <%= link_to @summary.title, @summary %>
+    </h4>
   <div class="col-md-4">
     <% if policy(@post).edit? %>
       <%= link_to "Edit", edit_topic_post_path(@topic,@post), class: 'btn btn-success' %>
