@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def show
     @topic = Topic.find(params[:topic_id])
-    @post = Post.find(params[:id])
+    @post = Post.order('created_at DESC').page(params[:page]).per_page(100)
   end
 
   def new
