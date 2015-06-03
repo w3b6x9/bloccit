@@ -1,7 +1,6 @@
 class SummariesController < ApplicationController
   def index
     @summaries = Summary.all
-    authorize @summaries
   end
 
   def show

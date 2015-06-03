@@ -1,4 +1,4 @@
-<h1>Summaries</h1>
+  <h1>Summaries</h1>
 
 <div class="row">
   <div class="col-md-8">
@@ -6,11 +6,8 @@
       <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
-            <%= link_to summary.title, summary %>
+            <%= link_to summary.title, topic_post_path(summary.post.topic, summary.post) %>
           </h4>
-          <small>
-            submitted <%= time_ago_in_words(summary.created_at) %> ago.
-          </small>
         </div>
       </div>
     <% end %>
