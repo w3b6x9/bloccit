@@ -53,15 +53,6 @@ ActiveRecord::Schema.define(version: 20150526164109) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "summaries", force: :cascade do |t|
-    t.integer  "post_id"
-    t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "summaries", ["post_id"], name: "index_summaries_on_post_id"
-
   create_table "topics", force: :cascade do |t|
     t.string   "name"
     t.boolean  "public",      default: true
