@@ -11,7 +11,7 @@
     <p><%= markdown_to_html @post.body %></p>
     <h3>Comments:</h3>
     <%= render @comments %>
-    <%= render partial: 'comments/form', locals: { post: @post } %>
+    <%= render partial: 'comments/comment', collection: @comments %>
   </div>
   <div class="col-md-4">
     <% if policy(@post).edit? %>
