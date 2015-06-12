@@ -20,4 +20,4 @@
 /config/application.yml
 
 # CarrierWave image
-public/uploads
+public/uploads.env
