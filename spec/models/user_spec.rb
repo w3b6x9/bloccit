@@ -17,7 +17,7 @@ describe User do
     before do 
       @user1 = create(:user_with_post_and_comment)
 
-      @user2 = create(:user_with_post_and_two_comments)
+      @user2 = create(:user_with_post_and_comment, comment_count: 2)
     end
 
     it "returns users ordered by comments + posts" do

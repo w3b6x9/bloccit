@@ -7,16 +7,13 @@ FactoryGirl.define do
     confirmed_at Time.now
 
     factory :user_with_post_and_comment do
-      after(:create) do |user|
-        post = create(:post, user: user)
-        comment = create(:comment, user: user, post: post)
+      transient do
+        comment_count 1
       end
-    end
 
-    factory :user_with_post_and_two_comments do
-      after(:create) do |user|
+      after(:create) do |user, evaluator|
         post = create(:post, user: user)
-        2.times { create(:comment, user: user, post: post) }
+        comment = create_list(:comment, evaluator.comment_count, user: user, post: post)
       end
     end
   end
