@@ -5,5 +5,24 @@ FactoryGirl.define do
     password "helloworld"
     password_confirmation "helloworld"
     confirmed_at Time.now
+<<<<<<< Updated upstream
+=======
+
+    trait :with_post_and_comment do
+      transient do
+        comment_count 1
+      end
+
+      after(:create) do |user, evaluator|
+        post = create(:post, user: user)
+        comment = create_list(
+          :comment, 
+          evaluator.comment_count, 
+          user: user, 
+          post: post,
+        )
+      end
+    end
+>>>>>>> Stashed changes
   end
 end

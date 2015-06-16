@@ -13,6 +13,7 @@ describe User do
   end
 
   describe ".top_rated" do
+<<<<<<< Updated upstream
 
     before do 
       @user1 = create(:user)
@@ -24,18 +25,33 @@ describe User do
       2.times { create(:comment, user: @user2, post:post) }
     end
 
+=======
+>>>>>>> Stashed changes
     it "returns users ordered by comments + posts" do
-      expect( User.top_rated ).to eq([@user2, @user1])
+      first_user = create(:user, :with_post_and_comment)
+      second_user = create(:user, :with_post_and_comment, comment_count: 2)
+
+      expect(User.top_rated).to eq([second_user, first_user])
     end
 
     it "stores a 'posts_count' on user" do
-      users = User.top_rated
-      expect( users.first.posts_count ).to eq(1)
+      first_user = create(:user, :with_post_and_comment)
+      second_user = create(:user, :with_post_and_comment, comment_count: 2)
+      top_rated_users = User.top_rated
+
+      result = top_rated_users.first.comments.count
+
+      expect(result).to eq(2)
     end
 
-    it "stores a 'comments_count' on user" do
-      users = User.top_rated
-      expect( users.first.comments_count ).to eq(2)
+    it "stores a 'comments' on user" do
+      first_user = create(:user, :with_post_and_comment)
+      second_user = create(:user, :with_post_and_comment, comment_count: 2)
+      top_rated_users = User.top_rated
+
+      result = top_rated_users.first.comments.count
+
+      expect(result).to eq(2)
     end
   end
 end
